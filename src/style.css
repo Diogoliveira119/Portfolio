@@ -7,37 +7,77 @@
 
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
-*{
+/* This is the header css */
+
+.header * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    z-index: 1;
+  }
+  .header li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0.5em 1.5em;
+    padding: 0;
+  }
+  .header a {
+    padding: 0.3em 0;
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .header a:before,
+  .header a:after {
+    height: 3px;
+    position: absolute;
+    content: '';
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    background-color: #4ade80;
+    width: 0;
+  }
+  .header a:before {
+    top: 0;
+    left: 0;
+  }
+  .header a:after {
+    bottom: 0;
+    right: 0;
+  }
+  .header a:hover,
+  .header .current a {
+    color: #ffffff;
+  }
+  .header a:hover:before,
+  .header .current a:before,
+  .header a:hover:after,
+  .header .current a:after {
+    width: 100%;
+  }
+
+
+/* *{
     margin: 0px;
     padding: 0px;
-}
+} */
+
+/* This is the main/bubbles css */
 
 body{
     font-family: 'Exo', sans-serif;
+    background-image: url("src/CircuitBoard.svg");
 }
 
-
-.context {
-    width: 100%;
-    position: absolute;
-    top:50vh;
-    
-}
-
-.context h1{
-    text-align: center;
-    color: #fff;
-    font-size: 50px;
-}
 
 
 .area{
-    background: #141419;  
-    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+    background: #141419;
     width: 100%;
     height:100vh;
-    
-   
+    z-index: -1;  
 }
 
 .circles{
@@ -55,7 +95,7 @@ body{
     list-style: none;
     width: 20px;
     height: 20px;
-    /* background: rgba(255, 255, 255, 0.2); */
+    background: rgba(74, 222, 128, 0.4);
     animation: animate 25s linear infinite;
     bottom: -150px;
     
@@ -71,8 +111,8 @@ body{
 
 .circles li:nth-child(2){
     left: 10%;
-    width: 2px;
-    height: 2px;
+    width: 4px;
+    height: 4px;
     animation-delay: 2s;
     animation-duration: 12s;
 }
@@ -94,8 +134,8 @@ body{
 
 .circles li:nth-child(5){
     left: 65%;
-    width: 2px;
-    height: 2px;
+    width: 5px;
+    height: 5px;
     animation-delay: 0s;
 }
 
@@ -123,8 +163,8 @@ body{
 
 .circles li:nth-child(9){
     left: 20%;
-    width: 1.5px;
-    height: 1.5px;
+    width: 3.5px;
+    height: 3.5px;
     animation-delay: 2s;
     animation-duration: 35s;
 }
@@ -144,13 +184,34 @@ body{
     0%{
         transform: translateY(0) rotate(0deg);
         opacity: 1;
-        border-radius: 0;
+        border-radius: 100%;
+    }
+
+    25%{
+        transform: translateY(-250px) rotate(180deg);
+        opacity: 0.5;
+        border-radius: 100%;
+    }
+
+    50%{
+        transform: translateY(-500px) rotate(360deg);
+        opacity: 1;
+        border-radius: 100%;
+    }
+
+    75%{
+        transform: translateY(-750px) rotate(450deg);
+        opacity: 0.5;
+        border-radius: 100%;
     }
 
     100%{
         transform: translateY(-1000px) rotate(720deg);
         opacity: 0;
-        border-radius: 50%;
+        border-radius: 1000%;
     }
 
 }
+
+
+
